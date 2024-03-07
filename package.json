@@ -1,0 +1,24 @@
+{
+  "name": "m2_mbds_api_assignment",
+  "version": "1.0.0",
+  "description": "Node api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lacoste27/m2_mbds_api_assignment.git"
+  },
+  "keywords": [
+    "assignment",
+    "api",
+    "node"
+  ],
+  "author": "Tsiory Robsona, Tommy Zafitsiarendrika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lacoste27/m2_mbds_api_assignment/issues"
+  },
+  "homepage": "https://github.com/Lacoste27/m2_mbds_api_assignment#readme"
+}
