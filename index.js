@@ -7,6 +7,7 @@ environment.config();
 
 const app = express();
 const authentificationRouter = require('./app/routes/authentification.route');
+const userRouter = require('./app/routes/user.route');
 
 const uri = (process.env.ENVIRONMENT === 'dev') ? 'mongodb://localhost:27017/assignments' : process.env.MONGODB_URI;
 
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/api/authentification", authentificationRouter);
+app.use("/api/users", userRouter);
 
 app.get('/api', (req, res) => {
     res.json({

@@ -7,10 +7,10 @@ async function authenticateUser(request, response) {
         const user = await authenticationService.authenticateUser(email, password);
         if (user) {
             const token = await authenticationService.generateToken(user);
-            // extract name, firstname, role on user object and store it in a new object
             const { name, firstname, role } = user;
             const infouser = { name, firstname, role };
-
+            
+            request.token = token;
             response.json({user: infouser, token});
         } else {
             response.status(401).json({ message: 'Invalid email or password' });
