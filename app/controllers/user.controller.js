@@ -17,6 +17,20 @@ async function getUserById(request, response ) {
     }
 }
 
+async function getAllUser(request, response) {
+    try{
+        var page = parseInt(request.query.page) || 1;
+        var limit = parseInt(request.query.limit) || 10;
+
+        const user = await userService.findAllUser(page, limit);
+        return response.json(user);
+    }catch(error){
+        console.error('Error on get all user', error);
+        response.status(500).json({ message: 'Internal server error' });
+    }
+}   
+
 module.exports = {
-    getUserById
+    getUserById,
+    getAllUser
 }

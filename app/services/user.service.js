@@ -22,7 +22,28 @@ async function findUserById(id) {
     }
 }
 
+// find all user find with mongoose model
+async function findAllUser(page, limit) {
+    try {
+        let aggregateQuery = User.aggregate();
+
+        const list = await  User.aggregatePaginate(
+            aggregateQuery, 
+            {
+                page: page,
+                limit: limit
+            }
+        );
+
+        return list;
+    } catch (error) {
+        console.error('Error finding user:', error);
+        throw error;
+    }
+}
+
 module.exports = {
     findUserByEmail,
-    findUserById
+    findUserById,
+    findAllUser
 };

@@ -21,11 +21,11 @@ const assignmentSchema = new Schema({
         type: Boolean,
         required: true
     },
-    etudiant :{
-        type: Object,
+    note : {
+        type: Boolean,
         required: true
     },
-    professeur: {
+    etudiant :{
         type: Object,
         required: true
     },
