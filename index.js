@@ -25,7 +25,7 @@ app.use("/api/users", userRouter);
 
 app.get('/api', (req, res) => {
     res.json({
-        message: 'Hello from the server api'
+        message: 'Hello from the server api test'
     });
 });
 
