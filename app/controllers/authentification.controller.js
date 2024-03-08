@@ -7,8 +7,8 @@ async function authenticateUser(request, response) {
         const user = await authenticationService.authenticateUser(email, password);
         if (user) {
             const token = await authenticationService.generateToken(user);
-            const { name, firstname, role } = user;
-            const infouser = { name, firstname, role };
+            const { id ,nom, prenom, role } = user;
+            const infouser = { id , nom, prenom, role };
             
             request.token = token;
             response.json({user: infouser, token});
