@@ -1,16 +1,58 @@
-const express = require('express');
-const assignmentController = require('../controllers/assignment.controller');
-const { authentificationMiddlware } = require('../middleware/authentification.middleware');
+const express = require("express");
+const assignmentController = require("../controllers/assignment.controller");
+const {
+  authentificationMiddlware,
+} = require("../middleware/authentification.middleware");
 const router = express.Router();
 
 router.use(authentificationMiddlware);
 
-router.get('/:id', assignmentController.getAssignmentById);
-router.post('/add', assignmentController.addAssignment);
-router.delete('/delete', assignmentController.deleteAssignement);
-router.put('/rendu', assignmentController.setAssignmentRendu);
+/**
+ * @swagger
+ * /assignments/{id}:
+ *   get:
+ *     summary: Get the assignment by id
+ *     tags: [Assignments]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The assignment id
+ */
+router.get("/:id", assignmentController.getAssignmentById);
 
-router.get('/', assignmentController.getAllAssignment);
+/**
+ * @swagger
+ * /assignments/add:
+ *   post:
+ *     summary: Add new assignment
+ *     tags: [Assignments]
+ */
+router.post("/add", assignmentController.addAssignment);
 
+/**
+ * @swagger
+ * /assignments/delete:
+ *   delete:
+ *     summary: Delete assignment
+ *     tags: [Assignments]
+ *     requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ */
+router.delete("/delete", assignmentController.deleteAssignement);
+router.put("/rendu", assignmentController.setAssignmentRendu);
+
+/**
+ * @swagger
+ * /assignments:
+ *   get:
+ *     summary: Get all assignments
+ *     tags: [Assignments]
+ */
+router.get("/", assignmentController.getAllAssignment);
 
 module.exports = router;
