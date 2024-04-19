@@ -6,11 +6,12 @@ const environment = require('dotenv');
 environment.config(); 
 
 const app = express();
+
 const authentificationRouter = require('./app/routes/authentification.route');
 const userRouter = require('./app/routes/user.route');
 const assignmentRouter = require('./app/routes/assignment.route');
 
-const uri = (process.env.ENVIRONMENT === 'dev') ? 'mongodb://localhost:27017/assignments' : process.env.MONGODB_URI;
+const uri = (process.env.ENVIRONMENT === 'dev') ? 'mongodb://localhost:27017/assignment' : process.env.MONGODB_URI;
 
 mongoose.connect(uri)
         .then(() => { console.log(`Connecté à la base MongoDB assignments à ${uri}`)},
@@ -28,10 +29,10 @@ app.use("/api/assignments", assignmentRouter);
 
 app.get('/api', (req, res) => {
     res.json({
-        message: 'Hello from the server api test'
+        message: 'Hello from the server api assignments'
     });
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });

@@ -13,7 +13,7 @@ async function adminMiddleware(request, response, next) {
     
             const verify = jwt.verify(token, SECRET_TOKEN, (error, user) => {
                 if(user){
-                    if(user.role === 'admin'){
+                    if(user.role === 'administrateur'){
                         request.user = user;
                         next();
                     } else {

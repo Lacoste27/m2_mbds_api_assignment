@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-aggregate-paginate-v2');
 
 const userSchema = new Schema({
+    _id: {
+        type: String,
+        required: true
+    },
     avatar: {
         type: String,
         required: true
@@ -36,4 +40,4 @@ const userSchema = new Schema({
 
 userSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Users', userSchema);

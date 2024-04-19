@@ -5,31 +5,34 @@ const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-aggregate-paginate-v2');
 
 const assignmentSchema = new Schema({
-    id: {
+    _id: {
         type: String,
         required: true,
     },
-    nom : {
+    nom: {
         type: String,
         required: true
     },
-    dateRendu : {
+    dateRendu: {
         type: Date,
         required: true
     },
-    rendu : {
+    rendu: {
         type: Boolean,
         required: true
     },
-    note : {
-        type: Boolean,
+    note: {
+        type: Number
+    },
+    remarque: {
+        type: String,
         required: true
     },
-    etudiant :{
+    etudiant: {
         type: Object,
         required: true
     },
-    matiere : {
+    matiere: {
         type: Object,
         required: true
     },

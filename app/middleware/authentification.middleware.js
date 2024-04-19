@@ -7,6 +7,7 @@ async function authentificationMiddlware(request, response, next) {
 
     try{
         const bearerHeader = request.headers['authorization'];
+
         if (typeof bearerHeader !== 'undefined') {
             const bearer = bearerHeader.split(' ');
             const token = bearer[1];

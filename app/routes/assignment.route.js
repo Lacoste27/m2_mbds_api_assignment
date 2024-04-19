@@ -5,7 +5,11 @@ const router = express.Router();
 
 router.use(authentificationMiddlware);
 
-// GET aal assignments
+router.get('/:id', assignmentController.getAssignmentById);
+router.post('/add', assignmentController.addAssignment);
+router.delete('/delete', assignmentController.deleteAssignement);
+router.put('/rendu', assignmentController.setAssignmentRendu);
+
 router.get('/', assignmentController.getAllAssignment);
 
 

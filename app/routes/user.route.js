@@ -9,8 +9,7 @@ router.use(authentificationMiddlware);
 
 // GET user details
 router.get('/:id/profile', userController.getUserById);
-    
-
+router.get('/:id/assignments', userController.getUserAssignment);
 
 router.use(adminMiddleware);
 
