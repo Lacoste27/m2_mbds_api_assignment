@@ -6,6 +6,7 @@ const userService = require('../services/user.service');
 async function authenticateUser(email, password) {
     try {
         const user = await userService.findUserByEmail(email);
+        console.log(email);
 
         if (user && user.password === password) {
             return user;
