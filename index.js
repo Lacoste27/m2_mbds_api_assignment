@@ -5,11 +5,13 @@ const bodyParser = require('body-parser');
 const environment = require('dotenv');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const cors = require('cors');
 
 environment.config(); 
 
 const app = express();
 
+app.use(cors());
 
 const options = {
   swaggerDefinition: {

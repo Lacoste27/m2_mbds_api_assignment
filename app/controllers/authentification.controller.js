@@ -6,6 +6,7 @@ async function authenticateUser(request, response) {
 
     try {
         const user = await authenticationService.authenticateUser(email, password);
+        console.log(user);
 
         if (user) {
 
