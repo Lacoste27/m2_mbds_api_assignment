@@ -23,6 +23,7 @@ async function generateToken(user) {
     const payload = {
         id: user.id,
         email: user.email,
+        nom: user.nom,
         role: user.role
     };
 
