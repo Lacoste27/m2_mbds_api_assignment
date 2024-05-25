@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const mongoosePaginate = require('mongoose-aggregate-paginate-v2');
 
-const assignmentSchema = new Schema({
+const matiereSchema = new Schema({
     _id: {
         type: String,
         required: true,
@@ -13,32 +13,21 @@ const assignmentSchema = new Schema({
         type: String,
         required: true
     },
-    dateRendu: {
-        type: Date,
+    coefficient: {
+        type: Number,
         required: true
     },
-    rendu: {
-        type: Boolean,
+    professeur: {
+        type: Object,
         required: true
     },
-    note: {
-        type: Number
-    },
-    remarque: {
+    image: {
         type: String,
-        required: false,
-        default: ''
-    },
-    etudiant: {
-        type: Object,
         required: true
-    },
-    matiere: {
-        type: Object,
-        required: true
-    },
+    }
+    
 });
 
-assignmentSchema.plugin(mongoosePaginate);
+matiereSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('Assignment', assignmentSchema);
+module.exports = mongoose.model('Matiere', matiereSchema);
