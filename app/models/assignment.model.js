@@ -26,7 +26,8 @@ const assignmentSchema = new Schema({
     },
     remarque: {
         type: String,
-        required: true
+        required: false,
+        default: ''
     },
     etudiant: {
         type: Object,
