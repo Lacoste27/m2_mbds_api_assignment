@@ -33,6 +33,19 @@ async function getAllUser(request, response) {
   }
 }
 
+async function getAllStudent(request, response) {
+  try {
+    var page = parseInt(request.query.page) || 1;
+    var limit = parseInt(request.query.limit) || 10;
+
+    const user = await userService.findAllStudent(page, limit);
+    return response.json(user);
+  } catch (error) {
+    console.error("Error on get all student", error);
+    response.status(500).json({ message: "Internal server error" });
+  }
+}
+
 async function getUserAssignment(request, response) {
   try {
     let userid = request.params.id;
@@ -92,4 +105,5 @@ module.exports = {
   getUserById,
   getAllUser,
   getUserAssignment,
+  getAllStudent
 };
