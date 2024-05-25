@@ -82,10 +82,27 @@ async function findTeacherAssignment(page, limit, teacher_id) {
   }
 }
 
+async function findAllStudent(page, limit){
+  try {
+    let aggregateQuery = User.aggregate().match({"role": "etudiant"});
+
+    const list = await User.aggregatePaginate(aggregateQuery, {
+      page: page,
+      limit: limit,
+    });
+
+    return list;
+  } catch (error) {
+    console.error("Error finding user:", error);
+    throw error;
+  }
+}
+
 module.exports = {
   findUserByEmail,
   findUserById,
   findAllUser,
   findStudentAssignment,
   findTeacherAssignment,
+  findAllStudent
 };

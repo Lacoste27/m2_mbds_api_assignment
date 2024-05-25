@@ -35,6 +35,7 @@ const swaggerSpec = swaggerJsdoc(options);
 const authentificationRouter = require('./app/routes/authentification.route');
 const userRouter = require('./app/routes/user.route');
 const assignmentRouter = require('./app/routes/assignment.route');
+const matiereRouter = require('./app/routes/matiere.route');
 
 const uri = (process.env.ENVIRONMENT === 'dev') ? 'mongodb://localhost:27017/assignment' : process.env.MONGODB_URI;
 
@@ -50,6 +51,7 @@ app.use(bodyParser.json());
 app.use("/api/authentification", authentificationRouter);
 app.use("/api/users", userRouter);
 app.use("/api/assignments", assignmentRouter);
+app.use("/api/matieres", matiereRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/api', (req, res) => {
