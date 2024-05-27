@@ -6,6 +6,7 @@ const environment = require('dotenv');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
+const listEndpoints = require('express-list-endpoints');
 
 environment.config(); 
 
@@ -60,6 +61,8 @@ app.get('/api', (req, res) => {
     });
 });
 
+
+console.log(listEndpoints(app));
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

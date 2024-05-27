@@ -25,15 +25,6 @@ router.get("/:id", assignmentController.getAssignmentById);
 
 /**
  * @swagger
- * /assignments/add:
- *   post:
- *     summary: Add new assignment
- *     tags: [Assignments]
- */
-router.post("/add", assignmentController.addAssignment);
-
-/**
- * @swagger
  * /assignments/delete:
  *   delete:
  *     summary: Delete assignment
@@ -43,8 +34,19 @@ router.post("/add", assignmentController.addAssignment);
  *      content:
  *        application/json:
  */
-router.delete("/delete", assignmentController.deleteAssignement);
-router.put("/rendu", assignmentController.setAssignmentRendu);
+
+router.delete("/:id", assignmentController.deleteAssignement);
+router.put("/:id", assignmentController.setAssignmentRendu);
+router.patch("/:id", assignmentController.setAssignmentRendu);
+
+/**
+ * @swagger
+ * /assignments/add:
+ *   post:
+ *     summary: Add new assignment
+ *     tags: [Assignments]
+ */
+router.post("/add", assignmentController.addAssignment);
 
 /**
  * @swagger

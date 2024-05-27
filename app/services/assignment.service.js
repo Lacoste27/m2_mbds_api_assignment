@@ -16,6 +16,7 @@ async function findAll(page, limit) {
   }
 }
 
+
 async function findById(assignment_id) {
   try {
     const assignment = Assignment.findOne({ _id: assignment_id });
@@ -29,8 +30,6 @@ async function findById(assignment_id) {
 
 async function add(assignment) {
   try {
-    assignment._id = "2eaeaf21-52da-4568-b5b9-fdd3dc48e8s8d";
-
     return Assignment.insertMany(assignment);
   } catch (error) {
     console.error("Error on add", error);
@@ -38,7 +37,7 @@ async function add(assignment) {
   }
 }
 
-async function setIsRendu(id, note) {
+async function setIsRendu(id, note, remarque) {
   try {
     const assignment = await findById(id);
 
@@ -48,6 +47,7 @@ async function setIsRendu(id, note) {
     
     assignment.note = note;
     assignment.rendu = true;
+    assignment.remarque = remarque;
 
     const result = Assignment.findByIdAndUpdate(id, assignment, { new: true });
 
