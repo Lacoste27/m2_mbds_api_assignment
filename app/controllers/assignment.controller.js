@@ -20,9 +20,9 @@ async function getAllAssignment(request, response) {
 
 async function getAssignmentById(request, response) {
   try {
-    let userid = request.params.id;
+    let id = request.params.id;
 
-    const assignment = await assignmentService.findById(userid);
+    const assignment = await assignmentService.findById(id);
 
     if (!assignment) {
       return response.status(404).json({ message: "Assignment not found" });
@@ -50,13 +50,16 @@ async function addAssignment(request, response) {
 
 async function setAssignmentRendu(request, response) {
   try {
-    const { id, note } = request.body;
+    const id = request.params.id;
+    const { remarque, note } = request.body;
+
+    console.log(id, note, remarque);
 
     if(!id && !note || !note){
-        return response.status(400).json({ message: "Veuillez mentionnez l'id et la note" });
+        return response.status(400).json({ message: "Veuillez mentionnez l'id , la note" });
     }
 
-    const assignment = await assignmentService.setIsRendu(id, note);
+    const assignment = await assignmentService.setIsRendu(id, note, remarque);
 
     if(!assignment){
         return response.status(404).json({ message: "Assignment non trouvé" });
@@ -71,7 +74,9 @@ async function setAssignmentRendu(request, response) {
 
 async function deleteAssignement(request, response) {
   try {
-    const { id } = request.body;
+    let id = request.params.id;
+
+    console.log("delete api "+id);
 
     const assignment = await assignmentService.deleteAssignment(id);
 
