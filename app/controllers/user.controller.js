@@ -38,8 +38,16 @@ async function getAllStudent(request, response) {
     var page = parseInt(request.query.page) || 1;
     var limit = parseInt(request.query.limit) || 10;
 
-    const user = await userService.findAllStudent(page, limit);
-    return response.json(user);
+    const {name} = request.query;
+
+    if(name){
+      const user = await userService.findAllStudentByName(name, page, limit);
+      return response.json(user);
+    } else {
+      const user = await userService.findAllStudent(page, limit);
+      return response.json(user);
+    }
+
   } catch (error) {
     console.error("Error on get all student", error);
     response.status(500).json({ message: "Internal server error" });
