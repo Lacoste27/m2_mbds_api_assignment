@@ -48,9 +48,30 @@ async function setIsRendu(id, note, remarque) {
     assignment.note = note;
     assignment.rendu = true;
     assignment.remarque = remarque;
+    assignment.dateRendu = new Date();
 
     const result = Assignment.findByIdAndUpdate(id, assignment, { new: true });
 
+
+    return result;
+  } catch (error) {
+    console.error("Error on set is rendu", error);
+    throw error;
+  }
+}
+
+async function updateAssignment(id, note, remarque) {
+  try {
+    const assignment = await findById(id);
+
+    if(!assignment){
+        return;
+    }
+    
+    assignment.note = note;
+    assignment.remarque = remarque;
+
+    const result = Assignment.findByIdAndUpdate(id, assignment, { new: true });
 
     return result;
   } catch (error) {
@@ -73,5 +94,6 @@ module.exports = {
   findById,
   add,
   setIsRendu,
-  deleteAssignment
+  deleteAssignment,
+  updateAssignment
 };

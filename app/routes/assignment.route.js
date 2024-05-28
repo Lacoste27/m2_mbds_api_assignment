@@ -36,7 +36,7 @@ router.get("/:id", assignmentController.getAssignmentById);
  */
 
 router.delete("/:id", assignmentController.deleteAssignement);
-router.put("/:id", assignmentController.setAssignmentRendu);
+router.put("/:id", assignmentController.updateAssignment);
 router.patch("/:id", assignmentController.setAssignmentRendu);
 
 /**

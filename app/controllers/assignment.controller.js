@@ -72,6 +72,30 @@ async function setAssignmentRendu(request, response) {
   }
 }
 
+async function updateAssignment(request, response) {
+  try {
+    const id = request.params.id;
+    const { remarque, note } = request.body;
+
+    console.log(id, note, remarque);
+
+    if(!id){
+        return response.status(400).json({ message: "Veuillez mentionnez l'id " });
+    }
+
+    const assignment = await assignmentService.updateAssignment(id, note, remarque);
+
+    if(!assignment){
+        return response.status(404).json({ message: "Assignment non trouvé" });
+    }
+
+    return response.json({ message: `Assignment ${assignment.nom} rendu avec la note de ${note} !` });
+  } catch (error) {
+    console.error("Error on update assignment", error);
+    response.status(500).json({ message: "Internal server error" });
+  }
+}
+
 async function deleteAssignement(request, response) {
   try {
     let id = request.params.id;
@@ -96,5 +120,6 @@ module.exports = {
   getAssignmentById,
   addAssignment,
   setAssignmentRendu,
+  updateAssignment,
   deleteAssignement,
 };
