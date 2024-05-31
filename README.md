@@ -136,7 +136,7 @@ nodemon run dev
 # Contributions
 ## Communes 
 - Conception des modèles
-- Enregistrement du vidéo de présentation
+- Enregistrement de la vidéo de présentation
 
 ## Robsona Tsiory Andriantsoa
 - Création de la base dans mongo atlas
