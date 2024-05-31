@@ -1,5 +1,10 @@
 # M2 Assignment Api
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 Une api pour l'application de remise de devoir 
 
 - L'url de l'api en ligne `https://m2-mbds-api-assignment.onrender.com/`
@@ -127,3 +132,31 @@ nodemon run dev
 ## Subjects
 ### /api/matieres/
 - `GET` : la récupéation de tous les matières
+
+# Contributions
+## Communes 
+- Conception des modèles
+- Enregistrement du vidéo de présentation
+
+## Robsona Tsiory Andriantsoa
+- Création de la base dans mongo atlas
+- Génération des données pour chaque collections
+- Création des api :
+    - authentifications avec token jwt
+    - liste des assignments 
+    - ajout des assignments
+    - details d'un assignment
+    - la modification d'un assignment
+    - rendre un assignment
+    - liste des utilisateurs
+    - profile d'un utilisateur
+- Configuration du déploiement de l'api sur [Render](https://render.com 'Render')
+
+## Zafitsiarendrika Tommy
+- La création des model pour mongoose
+- La configuration de CORS
+- Création api : 
+    - la liste de tous les matières
+    - la liste de tous les étudiants
+    - la liste de tous les matières
+- Montage de la video de presentation
