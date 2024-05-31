@@ -72,6 +72,12 @@ npm install
 
 ```
 
+# Environnement
+```
+ENVIRONMENT=dev
+SECRET_KEY=secret_key
+```
+
 # Démarrage
 
 ```bash
